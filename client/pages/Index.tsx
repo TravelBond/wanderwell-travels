@@ -242,6 +242,21 @@ export default function Index() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => {
               const Icon = service.icon;
+              const getColorClasses = (color: string) => {
+                switch (color) {
+                  case 'travel-blue':
+                    return { bg: 'bg-travel-blue/10', text: 'text-travel-blue' };
+                  case 'travel-orange':
+                    return { bg: 'bg-travel-orange/10', text: 'text-travel-orange' };
+                  case 'travel-green':
+                    return { bg: 'bg-travel-green/10', text: 'text-travel-green' };
+                  case 'travel-purple':
+                    return { bg: 'bg-travel-purple/10', text: 'text-travel-purple' };
+                  default:
+                    return { bg: 'bg-travel-blue/10', text: 'text-travel-blue' };
+                }
+              };
+              const colors = getColorClasses(service.color);
               return (
                 <Card
                   key={index}
@@ -249,9 +264,9 @@ export default function Index() {
                 >
                   <CardContent className="p-0">
                     <div
-                      className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 bg-${service.color}/10`}
+                      className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${colors.bg}`}
                     >
-                      <Icon className={`h-6 w-6 text-${service.color}`} />
+                      <Icon className={`h-6 w-6 ${colors.text}`} />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">
                       {service.title}
