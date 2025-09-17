@@ -23,9 +23,6 @@ export default defineConfig(({ mode }) => ({
       "@shared": path.resolve(__dirname, "./shared"),
     },
   },
-  css: {
-    preprocessorOptions: {},
-  },
 }));
 
 function expressPlugin(): Plugin {
