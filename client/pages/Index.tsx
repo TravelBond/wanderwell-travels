@@ -97,130 +97,250 @@ export default function Index() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted">
+    <div style={{ minHeight: '100vh', backgroundColor: '#f8fafc' }}>
       {/* Header */}
-      <header className="border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60 sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-to-br from-travel-blue to-travel-purple rounded-lg flex items-center justify-center">
-              <Plane className="h-5 w-5 text-white" />
+      <header style={{ 
+        borderBottom: '1px solid #e2e8f0', 
+        backgroundColor: 'rgba(255, 255, 255, 0.95)', 
+        backdropFilter: 'blur(8px)', 
+        position: 'sticky', 
+        top: 0, 
+        zIndex: 50 
+      }}>
+        <div style={{ 
+          maxWidth: '1200px', 
+          margin: '0 auto', 
+          padding: '1rem', 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'space-between' 
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <div style={{ 
+              width: '2rem', 
+              height: '2rem', 
+              background: 'linear-gradient(45deg, #2563eb, #7c3aed)', 
+              borderRadius: '0.5rem', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center' 
+            }}>
+              <Plane style={{ height: '1.25rem', width: '1.25rem', color: 'white' }} />
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-travel-blue to-travel-purple bg-clip-text text-transparent">
+            <span style={{ 
+              fontSize: '1.25rem', 
+              fontWeight: 'bold', 
+              background: 'linear-gradient(45deg, #2563eb, #7c3aed)', 
+              WebkitBackgroundClip: 'text', 
+              WebkitTextFillColor: 'transparent' 
+            }}>
               Traveltheworld.ai
             </span>
           </div>
-          <nav className="hidden md:flex items-center space-x-6">
+          <nav style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
             <Link
               to="/stays"
-              className="text-foreground/80 hover:text-foreground transition-colors"
+              style={{ color: '#64748b', textDecoration: 'none' }}
             >
               Stays
             </Link>
             <Link
               to="/flights"
-              className="text-foreground/80 hover:text-foreground transition-colors"
+              style={{ color: '#64748b', textDecoration: 'none' }}
             >
               Flights
             </Link>
             <Link
               to="/xperiences"
-              className="text-foreground/80 hover:text-foreground transition-colors"
+              style={{ color: '#64748b', textDecoration: 'none' }}
             >
               Xperiences
             </Link>
-            <Link
-              to="/events"
-              className="text-foreground/80 hover:text-foreground transition-colors"
+            <button 
+              onClick={() => setIsAuthModalOpen(true)}
+              style={{
+                padding: '0.5rem 1rem',
+                border: '1px solid #2563eb',
+                backgroundColor: 'transparent',
+                color: '#2563eb',
+                borderRadius: '0.375rem',
+                cursor: 'pointer'
+              }}
             >
-              Events
-            </Link>
-            <Link
-              to="/essentials"
-              className="text-foreground/80 hover:text-foreground transition-colors"
-            >
-              Essentials
-            </Link>
-            <Button variant="outline" onClick={() => setIsAuthModalOpen(true)}>
               Sign In
-            </Button>
+            </button>
             <Link to="/vendors">
-              <Button>Become a Travel Vendor</Button>
+              <button style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: '#2563eb',
+                color: 'white',
+                border: 'none',
+                borderRadius: '0.375rem',
+                cursor: 'pointer'
+              }}>
+                Become a Travel Vendor
+              </button>
             </Link>
           </nav>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-16 md:py-24">
-        <div className="text-center max-w-4xl mx-auto">
-          <Badge variant="secondary" className="mb-6">
+      <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 1rem' }}>
+        <div style={{ textAlign: 'center', maxWidth: '64rem', margin: '0 auto' }}>
+          <div style={{ 
+            backgroundColor: '#fbbf24', 
+            color: '#92400e', 
+            padding: '0.5rem 1rem', 
+            borderRadius: '1rem', 
+            display: 'inline-block', 
+            marginBottom: '1.5rem' 
+          }}>
             🚀 Powered by AI Technology
-          </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
+          </div>
+          <h1 style={{ 
+            fontSize: '3rem', 
+            fontWeight: 'bold', 
+            marginBottom: '1.5rem',
+            background: 'linear-gradient(45deg, #2563eb, #7c3aed, #ea580c)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}>
             Plan Your Perfect Trip with{" "}
-            <span className="bg-gradient-to-r from-travel-blue via-travel-purple to-travel-orange bg-clip-text text-transparent">
+            <span style={{ 
+              background: 'linear-gradient(45deg, #2563eb, #7c3aed, #ea580c)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent' 
+            }}>
               AI-Powered
             </span>{" "}
             Booking
           </h1>
-          <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+          <p style={{ 
+            fontSize: '1.25rem', 
+            color: '#64748b', 
+            marginBottom: '2rem', 
+            lineHeight: '1.75' 
+          }}>
             From vacation rentals to adventure experiences, book everything with
             live demos, smart deals, and complete AI-generated itineraries.
           </p>
 
           {/* AI vs Manual Booking Choice */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Card className="flex-1 max-w-md p-6 border-2 border-travel-blue/20 hover:border-travel-blue/50 transition-colors cursor-pointer">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-10 h-10 bg-travel-blue/10 rounded-lg flex items-center justify-center">
-                  <Bot className="h-5 w-5 text-travel-blue" />
+          <div style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: '1rem', 
+            justifyContent: 'center', 
+            marginBottom: '3rem',
+            maxWidth: '48rem',
+            margin: '0 auto'
+          }}>
+            <div style={{ 
+              flex: 1, 
+              maxWidth: '24rem', 
+              padding: '1.5rem', 
+              border: '2px solid #3b82f6', 
+              borderRadius: '0.5rem',
+              backgroundColor: 'white',
+              cursor: 'pointer' 
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                <div style={{ 
+                  width: '2.5rem', 
+                  height: '2.5rem', 
+                  backgroundColor: '#dbeafe', 
+                  borderRadius: '0.5rem', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center' 
+                }}>
+                  <Bot style={{ height: '1.25rem', width: '1.25rem', color: '#2563eb' }} />
                 </div>
-                <h3 className="font-semibold">Book with AI</h3>
+                <h3 style={{ fontWeight: '600' }}>Book with AI</h3>
               </div>
-              <p className="text-sm text-muted-foreground mb-4">
+              <p style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '1rem' }}>
                 Tell us your destination, dates, and travelers. We'll create
                 complete itineraries with budget options.
               </p>
               <Link to="/ai-planner">
-                <Button className="w-full bg-travel-blue hover:bg-travel-blue/90">
+                <button style={{
+                  width: '100%',
+                  backgroundColor: '#2563eb',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  border: 'none',
+                  borderRadius: '0.375rem',
+                  cursor: 'pointer',
+                  fontWeight: '500'
+                }}>
                   Start AI Planning
-                </Button>
+                </button>
               </Link>
-            </Card>
+            </div>
 
-            <Card className="flex-1 max-w-md p-6 border-2 border-travel-orange/20 hover:border-travel-orange/50 transition-colors cursor-pointer">
-              <div className="flex items-center space-x-3 mb-4">
-                <div className="w-10 h-10 bg-travel-orange/10 rounded-lg flex items-center justify-center">
-                  <Users className="h-5 w-5 text-travel-orange" />
+            <div style={{ 
+              flex: 1, 
+              maxWidth: '24rem', 
+              padding: '1.5rem', 
+              border: '2px solid #ea580c', 
+              borderRadius: '0.5rem',
+              backgroundColor: 'white',
+              cursor: 'pointer' 
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                <div style={{ 
+                  width: '2.5rem', 
+                  height: '2.5rem', 
+                  backgroundColor: '#fed7aa', 
+                  borderRadius: '0.5rem', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center' 
+                }}>
+                  <Users style={{ height: '1.25rem', width: '1.25rem', color: '#ea580c' }} />
                 </div>
-                <h3 className="font-semibold">Book Manually</h3>
+                <h3 style={{ fontWeight: '600' }}>Book Manually</h3>
               </div>
-              <p className="text-sm text-muted-foreground mb-4">
+              <p style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '1rem' }}>
                 Browse and book each service individually with full control over
                 your travel choices.
               </p>
               <Link to="/explore-services">
-                <Button
-                  variant="outline"
-                  className="w-full border-travel-orange text-travel-orange hover:bg-travel-orange hover:text-white"
-                >
+                <button style={{
+                  width: '100%',
+                  backgroundColor: 'transparent',
+                  color: '#ea580c',
+                  padding: '0.75rem 1.5rem',
+                  border: '1px solid #ea580c',
+                  borderRadius: '0.375rem',
+                  cursor: 'pointer',
+                  fontWeight: '500'
+                }}>
                   Explore Services
-                </Button>
+                </button>
               </Link>
-            </Card>
+            </div>
           </div>
 
-          <div className="flex items-center justify-center space-x-6 text-sm text-muted-foreground">
-            <div className="flex items-center space-x-2">
-              <Shield className="h-4 w-4" />
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            gap: '1.5rem', 
+            fontSize: '0.875rem', 
+            color: '#64748b' 
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <Shield style={{ height: '1rem', width: '1rem' }} />
               <span>Secure Booking</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <Clock className="h-4 w-4" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <Clock style={{ height: '1rem', width: '1rem' }} />
               <span>24/7 Support</span>
             </div>
-            <div className="flex items-center space-x-2">
-              <Star className="h-4 w-4" />
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <Star style={{ height: '1rem', width: '1rem' }} />
               <span>5-Star Rated</span>
             </div>
           </div>

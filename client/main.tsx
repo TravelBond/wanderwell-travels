@@ -1,6 +1,6 @@
 console.log("🚀 Starting Lovable app...");
 console.log("📍 Build environment ready");
-import "./index.css";
+// CSS removed to bypass configuration issues
 import { createRoot } from "react-dom/client";
 import App from "./App";
 
