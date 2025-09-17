@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 
 export default function Index() {
+  console.log("📍 Index component rendering");
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
   const services = [

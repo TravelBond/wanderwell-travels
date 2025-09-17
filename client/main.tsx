@@ -1,4 +1,5 @@
-import "./global.css";
+console.log("🚀 Starting Lovable app...");
+import "./index.css";
 import { createRoot } from "react-dom/client";
 import App from "./App";
 
