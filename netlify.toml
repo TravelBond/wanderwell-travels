@@ -3,6 +3,7 @@
   functions = "netlify/functions"
   publish = "dist/spa"
 
+
 [functions]
   external_node_modules = ["express"]
   node_bundler = "esbuild"
@@ -12,9 +13,3 @@
   from = "/api/*"
   status = 200
   to = "/.netlify/functions/api/:splat"
-
-# SPA fallback - this ensures all routes serve the index.html for client-side routing
-[[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200

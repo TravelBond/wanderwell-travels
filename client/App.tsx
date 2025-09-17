@@ -26,7 +26,6 @@ import NotFound from "./pages/NotFound";
 const queryClient = new QueryClient();
 
 export default function App() {
-  console.log("📱 App component rendering");
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>

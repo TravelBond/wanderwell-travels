@@ -5,29 +5,26 @@ import { createServer } from "./server";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => {
-  console.log("📦 Build configuration loaded", { mode });
-  return {
-    server: {
-      host: "::",
-      port: 8080,
+export default defineConfig(({ mode }) => ({
+  server: {
+    host: "::",
+    port: 8080,
+  },
+  build: {
+    outDir: "dist/spa",
+  },
+  plugins: [
+    react(),
+    mode === 'development' && componentTagger(),
+    expressPlugin()
+  ].filter(Boolean),
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./client"),
+      "@shared": path.resolve(__dirname, "./shared"),
     },
-    build: {
-      outDir: "dist/spa",
-    },
-    plugins: [
-      react(),
-      mode === 'development' && componentTagger(),
-      expressPlugin()
-    ].filter(Boolean),
-    resolve: {
-      alias: {
-        "@": path.resolve(__dirname, "./client"),
-        "@shared": path.resolve(__dirname, "./shared"),
-      },
-    },
-  };
-});
+  },
+}));
 
 function expressPlugin(): Plugin {
   return {
