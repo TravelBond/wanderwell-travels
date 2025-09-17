@@ -1,6 +1,8 @@
-import "./global.css";
+// import "./minimal.css"; // All CSS disabled for debugging
 import { createRoot } from "react-dom/client";
 import App from "./App";
+
+// Force rebuild trigger - no CSS version
 
 const container = document.getElementById("root");
 if (!container) {
