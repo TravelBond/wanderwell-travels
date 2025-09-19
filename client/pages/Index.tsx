@@ -24,6 +24,7 @@ import {
 } from "lucide-react";
 
 export default function Index() {
+  console.log("📍 Index component rendering");
   const [isAuthModalOpen, setIsAuthModalOpen] = useState(false);
 
   const services = [
@@ -96,185 +97,302 @@ export default function Index() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-surface-elevated to-muted/30">
+    <div style={{ minHeight: '100vh', backgroundColor: '#f8fafc' }}>
       {/* Header */}
-      <header className="glass sticky top-0 z-50 border-b border-border/50">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 gradient-hero rounded-xl flex items-center justify-center shadow-md">
-              <Plane className="h-6 w-6 text-white" />
+      <header style={{ 
+        borderBottom: '1px solid #e2e8f0', 
+        backgroundColor: 'rgba(255, 255, 255, 0.95)', 
+        backdropFilter: 'blur(8px)', 
+        position: 'sticky', 
+        top: 0, 
+        zIndex: 50 
+      }}>
+        <div style={{ 
+          maxWidth: '1200px', 
+          margin: '0 auto', 
+          padding: '1rem', 
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'space-between' 
+        }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+            <div style={{ 
+              width: '2rem', 
+              height: '2rem', 
+              background: 'linear-gradient(45deg, #2563eb, #7c3aed)', 
+              borderRadius: '0.5rem', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center' 
+            }}>
+              <Plane style={{ height: '1.25rem', width: '1.25rem', color: 'white' }} />
             </div>
-            <span className="text-2xl font-bold gradient-text">
-              TravelConnect.ai
+            <span style={{ 
+              fontSize: '1.25rem', 
+              fontWeight: 'bold', 
+              background: 'linear-gradient(45deg, #2563eb, #7c3aed)', 
+              WebkitBackgroundClip: 'text', 
+              WebkitTextFillColor: 'transparent' 
+            }}>
+              Traveltheworld.ai
             </span>
           </div>
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
             <Link
               to="/stays"
-              className="text-foreground/70 hover:text-foreground transition-all duration-200 font-medium hover:scale-105"
+              style={{ color: '#64748b', textDecoration: 'none' }}
             >
               Stays
             </Link>
             <Link
               to="/flights"
-              className="text-foreground/70 hover:text-foreground transition-all duration-200 font-medium hover:scale-105"
+              style={{ color: '#64748b', textDecoration: 'none' }}
             >
               Flights
             </Link>
             <Link
               to="/xperiences"
-              className="text-foreground/70 hover:text-foreground transition-all duration-200 font-medium hover:scale-105"
+              style={{ color: '#64748b', textDecoration: 'none' }}
             >
               Xperiences
             </Link>
-            <Link
-              to="/events"
-              className="text-foreground/70 hover:text-foreground transition-all duration-200 font-medium hover:scale-105"
+            <button 
+              onClick={() => setIsAuthModalOpen(true)}
+              style={{
+                padding: '0.5rem 1rem',
+                border: '1px solid #2563eb',
+                backgroundColor: 'transparent',
+                color: '#2563eb',
+                borderRadius: '0.375rem',
+                cursor: 'pointer'
+              }}
             >
-              Events
-            </Link>
-            <Link
-              to="/essentials"
-              className="text-foreground/70 hover:text-foreground transition-all duration-200 font-medium hover:scale-105"
-            >
-              Essentials
-            </Link>
-            <Button variant="outline" className="hover-lift" onClick={() => setIsAuthModalOpen(true)}>
               Sign In
-            </Button>
+            </button>
             <Link to="/vendors">
-              <Button variant="premium" className="shadow-lg">
+              <button style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: '#2563eb',
+                color: 'white',
+                border: 'none',
+                borderRadius: '0.375rem',
+                cursor: 'pointer'
+              }}>
                 Become a Travel Vendor
-              </Button>
+              </button>
             </Link>
           </nav>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="container mx-auto px-4 py-20 md:py-32">
-        <div className="text-center max-w-5xl mx-auto animate-fade-in">
-          <Badge variant="secondary" className="mb-8 px-4 py-2 text-sm font-medium shadow-soft">
-            🚀 Powered by Advanced AI Technology
-          </Badge>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8 leading-tight">
+      <section style={{ maxWidth: '1200px', margin: '0 auto', padding: '4rem 1rem' }}>
+        <div style={{ textAlign: 'center', maxWidth: '64rem', margin: '0 auto' }}>
+          <div style={{ 
+            backgroundColor: '#fbbf24', 
+            color: '#92400e', 
+            padding: '0.5rem 1rem', 
+            borderRadius: '1rem', 
+            display: 'inline-block', 
+            marginBottom: '1.5rem' 
+          }}>
+            🚀 Powered by AI Technology
+          </div>
+          <h1 style={{ 
+            fontSize: '3rem', 
+            fontWeight: 'bold', 
+            marginBottom: '1.5rem',
+            background: 'linear-gradient(45deg, #2563eb, #7c3aed, #ea580c)',
+            WebkitBackgroundClip: 'text',
+            WebkitTextFillColor: 'transparent'
+          }}>
             Plan Your Perfect Trip with{" "}
-            <span className="gradient-text">
+            <span style={{ 
+              background: 'linear-gradient(45deg, #2563eb, #7c3aed, #ea580c)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent' 
+            }}>
               AI-Powered
             </span>{" "}
             Booking
           </h1>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed max-w-4xl mx-auto">
-            From luxury vacation rentals to unforgettable adventures, book everything with
-            live previews, intelligent recommendations, and complete AI-generated itineraries.
+          <p style={{ 
+            fontSize: '1.25rem', 
+            color: '#64748b', 
+            marginBottom: '2rem', 
+            lineHeight: '1.75' 
+          }}>
+            From vacation rentals to adventure experiences, book everything with
+            live demos, smart deals, and complete AI-generated itineraries.
           </p>
 
           {/* AI vs Manual Booking Choice */}
-          <div className="flex flex-col lg:flex-row gap-6 justify-center mb-16 max-w-4xl mx-auto">
-            <Card className="card-premium card-interactive flex-1 p-8 border-2 border-travel-ocean/20 hover:border-travel-ocean/40">
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="w-14 h-14 bg-gradient-to-br from-travel-ocean to-travel-teal rounded-xl flex items-center justify-center shadow-md">
-                  <Bot className="h-7 w-7 text-white" />
+          <div style={{ 
+            display: 'flex', 
+            flexDirection: 'column', 
+            gap: '1rem', 
+            justifyContent: 'center', 
+            marginBottom: '3rem',
+            maxWidth: '48rem',
+            margin: '0 auto'
+          }}>
+            <div style={{ 
+              flex: 1, 
+              maxWidth: '24rem', 
+              padding: '1.5rem', 
+              border: '2px solid #3b82f6', 
+              borderRadius: '0.5rem',
+              backgroundColor: 'white',
+              cursor: 'pointer' 
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                <div style={{ 
+                  width: '2.5rem', 
+                  height: '2.5rem', 
+                  backgroundColor: '#dbeafe', 
+                  borderRadius: '0.5rem', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center' 
+                }}>
+                  <Bot style={{ height: '1.25rem', width: '1.25rem', color: '#2563eb' }} />
                 </div>
-                <h3 className="text-2xl font-semibold">AI-Powered Planning</h3>
+                <h3 style={{ fontWeight: '600' }}>Book with AI</h3>
               </div>
-              <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
-                Share your dream destination, travel dates, and group size. Our AI creates
-                personalized itineraries with curated accommodations, activities, and budget optimization.
+              <p style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '1rem' }}>
+                Tell us your destination, dates, and travelers. We'll create
+                complete itineraries with budget options.
               </p>
               <Link to="/ai-planner">
-                <Button size="lg" variant="premium" className="w-full shadow-lg">
+                <button style={{
+                  width: '100%',
+                  backgroundColor: '#2563eb',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  border: 'none',
+                  borderRadius: '0.375rem',
+                  cursor: 'pointer',
+                  fontWeight: '500'
+                }}>
                   Start AI Planning
-                </Button>
+                </button>
               </Link>
-            </Card>
+            </div>
 
-            <Card className="card-premium card-interactive flex-1 p-8 border-2 border-travel-coral/20 hover:border-travel-coral/40">
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="w-14 h-14 bg-gradient-to-br from-travel-coral to-travel-sunset rounded-xl flex items-center justify-center shadow-md">
-                  <Users className="h-7 w-7 text-white" />
+            <div style={{ 
+              flex: 1, 
+              maxWidth: '24rem', 
+              padding: '1.5rem', 
+              border: '2px solid #ea580c', 
+              borderRadius: '0.5rem',
+              backgroundColor: 'white',
+              cursor: 'pointer' 
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
+                <div style={{ 
+                  width: '2.5rem', 
+                  height: '2.5rem', 
+                  backgroundColor: '#fed7aa', 
+                  borderRadius: '0.5rem', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center' 
+                }}>
+                  <Users style={{ height: '1.25rem', width: '1.25rem', color: '#ea580c' }} />
                 </div>
-                <h3 className="text-2xl font-semibold">Custom Exploration</h3>
+                <h3 style={{ fontWeight: '600' }}>Book Manually</h3>
               </div>
-              <p className="text-muted-foreground mb-6 text-lg leading-relaxed">
-                Browse our premium collection of stays, flights, and experiences with
-                complete control over every aspect of your journey.
+              <p style={{ fontSize: '0.875rem', color: '#64748b', marginBottom: '1rem' }}>
+                Browse and book each service individually with full control over
+                your travel choices.
               </p>
               <Link to="/explore-services">
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="w-full border-2 border-travel-coral text-travel-coral hover:bg-travel-coral hover:text-white hover:shadow-md"
-                >
-                  Explore Manually
-                </Button>
+                <button style={{
+                  width: '100%',
+                  backgroundColor: 'transparent',
+                  color: '#ea580c',
+                  padding: '0.75rem 1.5rem',
+                  border: '1px solid #ea580c',
+                  borderRadius: '0.375rem',
+                  cursor: 'pointer',
+                  fontWeight: '500'
+                }}>
+                  Explore Services
+                </button>
               </Link>
-            </Card>
+            </div>
           </div>
 
-          <div className="flex items-center justify-center space-x-8 text-sm text-muted-foreground">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-success/10 rounded-lg flex items-center justify-center">
-                <Shield className="h-4 w-4 text-success" />
-              </div>
-              <span className="font-medium">Bank-Level Security</span>
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            gap: '1.5rem', 
+            fontSize: '0.875rem', 
+            color: '#64748b' 
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <Shield style={{ height: '1rem', width: '1rem' }} />
+              <span>Secure Booking</span>
             </div>
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-travel-coral/10 rounded-lg flex items-center justify-center">
-                <Clock className="h-4 w-4 text-travel-coral" />
-              </div>
-              <span className="font-medium">24/7 Premium Support</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <Clock style={{ height: '1rem', width: '1rem' }} />
+              <span>24/7 Support</span>
             </div>
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-warning/10 rounded-lg flex items-center justify-center">
-                <Star className="h-4 w-4 text-warning" />
-              </div>
-              <span className="font-medium">5-Star Excellence</span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <Star style={{ height: '1rem', width: '1rem' }} />
+              <span>5-Star Rated</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 bg-gradient-to-br from-surface-elevated to-muted/50">
+      <section id="services" className="bg-muted/30 py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Everything You Need for Travel
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Book all aspects of your journey in one place with AI-powered
-              recommendations, live previews, and premium service quality.
+              recommendations and live previews.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {services.map((service, index) => {
               const Icon = service.icon;
               const getColorClasses = (color: string) => {
                 switch (color) {
                   case 'travel-blue':
-                    return { bg: 'bg-travel-ocean/10', text: 'text-travel-ocean', gradient: 'from-travel-ocean/5 to-travel-ocean/10' };
+                    return { bg: 'bg-travel-blue/10', text: 'text-travel-blue' };
+                  case 'travel-orange':
+                    return { bg: 'bg-travel-orange/10', text: 'text-travel-orange' };
+                  case 'travel-green':
+                    return { bg: 'bg-travel-green/10', text: 'text-travel-green' };
+                  case 'travel-purple':
+                    return { bg: 'bg-travel-purple/10', text: 'text-travel-purple' };
                   default:
-                    return { bg: 'bg-travel-ocean/10', text: 'text-travel-ocean', gradient: 'from-travel-ocean/5 to-travel-ocean/10' };
+                    return { bg: 'bg-travel-blue/10', text: 'text-travel-blue' };
                 }
               };
               const colors = getColorClasses(service.color);
               return (
                 <Card
                   key={index}
-                  className={`card-premium card-interactive p-8 bg-gradient-to-br ${colors.gradient} hover:shadow-premium group`}
+                  className="p-6 hover:shadow-lg transition-shadow border-0 bg-white/80 backdrop-blur"
                 >
                   <CardContent className="p-0">
                     <div
-                      className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${colors.bg} group-hover:scale-110 transition-transform duration-300 shadow-soft`}
+                      className={`w-12 h-12 rounded-lg flex items-center justify-center mb-4 ${colors.bg}`}
                     >
-                      <Icon className={`h-8 w-8 ${colors.text}`} />
+                      <Icon className={`h-6 w-6 ${colors.text}`} />
                     </div>
-                    <h3 className="text-2xl font-semibold mb-4 group-hover:text-foreground transition-colors">
+                    <h3 className="text-xl font-semibold mb-2">
                       {service.title}
                     </h3>
-                    <p className="text-muted-foreground text-lg leading-relaxed">
+                    <p className="text-muted-foreground">
                       {service.description}
                     </p>
                   </CardContent>
@@ -286,30 +404,30 @@ export default function Index() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-20">
+      <section id="features" className="py-16">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Advanced Features for Modern Travelers
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Cutting-edge technology to enhance your booking experience and
-              travel planning with professional-grade tools.
+              travel planning.
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => {
               const Icon = feature.icon;
               return (
-                <div key={index} className="text-center group hover-lift">
-                  <div className="w-20 h-20 gradient-hero rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-premium transition-all duration-300">
-                    <Icon className="h-10 w-10 text-white" />
+                <div key={index} className="text-center">
+                  <div className="w-16 h-16 bg-gradient-to-br from-travel-blue/10 to-travel-purple/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <Icon className="h-8 w-8 text-travel-blue" />
                   </div>
-                  <h3 className="text-2xl font-semibold mb-4 group-hover:text-primary transition-colors">
+                  <h3 className="text-xl font-semibold mb-2">
                     {feature.title}
                   </h3>
-                  <p className="text-muted-foreground text-lg leading-relaxed">{feature.description}</p>
+                  <p className="text-muted-foreground">{feature.description}</p>
                 </div>
               );
             })}
@@ -318,46 +436,42 @@ export default function Index() {
       </section>
 
       {/* Travel Wallet & Rewards */}
-      <section className="py-20 bg-gradient-to-r from-travel-ocean/5 via-travel-lavender/5 to-travel-coral/5">
+      <section className="bg-gradient-to-r from-travel-blue/5 via-travel-purple/5 to-travel-orange/5 py-16">
         <div className="container mx-auto px-4">
-          <div className="max-w-5xl mx-auto text-center animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">
-              Premium Travel Wallet & Rewards
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Travel Wallet & Rewards
             </h2>
-            <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
-              Earn exclusive digital rewards with every booking, referral, and milestone achievement.
-              Use your premium travel wallet for instant bookings and access to exclusive deals worldwide.
+            <p className="text-lg text-muted-foreground mb-8">
+              Earn digital coins with every booking, referral, and achievement.
+              Use your travel wallet for instant bookings and exclusive deals.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-10">
-              <Card className="card-premium card-interactive p-10 group">
-                <div className="w-20 h-20 bg-gradient-to-br from-travel-ocean to-travel-teal rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-premium transition-all duration-300">
-                  <Wallet className="h-10 w-10 text-white" />
+            <div className="grid md:grid-cols-2 gap-8">
+              <Card className="p-8 border-0 bg-white/80 backdrop-blur">
+                <div className="w-16 h-16 bg-travel-blue/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Wallet className="h-8 w-8 text-travel-blue" />
                 </div>
-                <h3 className="text-2xl font-semibold mb-4">
+                <h3 className="text-xl font-semibold mb-2">
                   Digital Travel Wallet
                 </h3>
-                <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
-                  Preload funds for instant bookings, track spending with detailed analytics, 
-                  and unlock wallet-exclusive deals and upgrades.
+                <p className="text-muted-foreground mb-4">
+                  Preload funds and book instantly. Track spending and get
+                  exclusive wallet-only deals.
                 </p>
-                <Button variant="premium" size="lg" className="shadow-lg">
-                  Setup Premium Wallet
-                </Button>
+                <Button variant="outline">Setup Wallet</Button>
               </Card>
 
-              <Card className="card-premium card-interactive p-10 group">
-                <div className="w-20 h-20 bg-gradient-to-br from-travel-coral to-travel-sunset rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg group-hover:shadow-premium transition-all duration-300">
-                  <Gift className="h-10 w-10 text-white" />
+              <Card className="p-8 border-0 bg-white/80 backdrop-blur">
+                <div className="w-16 h-16 bg-travel-orange/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                  <Gift className="h-8 w-8 text-travel-orange" />
                 </div>
-                <h3 className="text-2xl font-semibold mb-4">Elite Rewards Program</h3>
-                <p className="text-muted-foreground mb-8 text-lg leading-relaxed">
-                  Earn premium coins for bookings, authentic reviews, and successful referrals. 
-                  Redeem for travel credits, room upgrades, and exclusive experiences.
+                <h3 className="text-xl font-semibold mb-2">Rewards Program</h3>
+                <p className="text-muted-foreground mb-4">
+                  Earn coins for bookings, reviews, referrals. Redeem for travel
+                  credits and upgrades.
                 </p>
-                <Button variant="coral" size="lg" className="shadow-lg">
-                  Join Elite Program
-                </Button>
+                <Button variant="outline">Join Rewards</Button>
               </Card>
             </div>
           </div>
@@ -365,87 +479,79 @@ export default function Index() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
+      <section className="py-16">
         <div className="container mx-auto px-4 text-center">
-          <div className="max-w-4xl mx-auto animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">
-              Ready to Start Your Journey?
-            </h2>
-            <p className="text-xl text-muted-foreground mb-12 leading-relaxed">
-              Join thousands of satisfied travelers using AI to plan better trips, save
-              money, and discover amazing experiences around the world.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center">
-              <Link to="/ai-planner">
-                <Button
-                  size="xl"
-                  variant="premium"
-                  className="shadow-lg hover:shadow-premium"
-                >
-                  Start Planning with AI
-                </Button>
-              </Link>
-              <Button 
-                size="xl" 
-                variant="outline" 
-                className="border-2 hover:shadow-md"
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            Ready to Start Your Journey?
+          </h2>
+          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
+            Join thousands of travelers using AI to plan better trips, save
+            money, and discover amazing experiences.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link to="/ai-planner">
+              <Button
+                size="lg"
+                className="bg-travel-blue hover:bg-travel-blue/90"
               >
-                Browse Manually
+                Start Planning with AI
               </Button>
-            </div>
+            </Link>
+            <Button size="lg" variant="outline">
+              Browse Manually
+            </Button>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-br from-muted/50 to-surface-elevated border-t border-border/50 py-16">
+      <footer className="bg-muted/50 border-t py-12">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-3 mb-6 md:mb-0">
-              <div className="w-12 h-12 gradient-hero rounded-2xl flex items-center justify-center shadow-md">
-                <Plane className="h-7 w-7 text-white" />
+            <div className="flex items-center space-x-2 mb-4 md:mb-0">
+              <div className="w-8 h-8 bg-gradient-to-br from-travel-blue to-travel-purple rounded-lg flex items-center justify-center">
+                <Plane className="h-5 w-5 text-white" />
               </div>
-              <span className="text-2xl font-bold gradient-text">
-                TravelConnect.ai
+              <span className="text-xl font-bold bg-gradient-to-r from-travel-blue to-travel-purple bg-clip-text text-transparent">
+                Traveltheworld.ai
               </span>
             </div>
-            <div className="flex items-center space-x-8 text-sm text-muted-foreground">
+            <div className="flex items-center space-x-6 text-sm text-muted-foreground">
               <Link
                 to="/terms"
-                className="hover:text-foreground transition-colors font-medium hover:scale-105 duration-200"
+                className="hover:text-foreground transition-colors"
               >
-                Privacy Policy
+                Privacy
               </Link>
               <Link
                 to="/terms"
-                className="hover:text-foreground transition-colors font-medium hover:scale-105 duration-200"
+                className="hover:text-foreground transition-colors"
               >
-                Terms of Service
+                Terms
               </Link>
               <button
                 onClick={() => setIsAuthModalOpen(true)}
-                className="hover:text-foreground transition-colors font-medium hover:scale-105 duration-200"
+                className="hover:text-foreground transition-colors"
               >
-                Premium Support
+                Support
               </button>
               <Link
                 to="/document-download"
-                className="hover:text-foreground transition-colors font-medium hover:scale-105 duration-200"
+                className="hover:text-foreground transition-colors"
               >
-                Documentation
+                SRS Document
               </Link>
               <Link
                 to="/terms"
-                className="hover:text-foreground transition-colors font-medium hover:scale-105 duration-200"
+                className="hover:text-foreground transition-colors"
               >
-                About Us
+                About
               </Link>
             </div>
           </div>
-          <div className="mt-12 pt-8 border-t border-border/50 text-center text-sm text-muted-foreground">
-            <p className="font-medium">
-              © 2024 TravelConnect.ai. All rights reserved. Powered by Advanced AI Technology.
-            </p>
+          <div className="mt-8 pt-8 border-t text-center text-sm text-muted-foreground">
+            © 2024 Traveltheworld.ai. All rights reserved. Powered by AI
+            technology.
           </div>
         </div>
       </footer>
